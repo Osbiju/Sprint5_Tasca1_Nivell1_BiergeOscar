@@ -7,6 +7,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,8 +39,27 @@ public class SucursalService {
         if(sucursal.isEmpty()){
             sucursalDTO = null;
         } else {
-            sucursalDTO.getPk_SucursalID()
+            sucursalDTO.setPk_SucursalID(sucursal.get().getPk_SucursalID());
+            sucursalDTO.setNomSucursal(sucursal.get().getNomSucursal());
+            sucursalDTO.setPaisSucursal(sucursal.get().getNomSucursal());
+            sucursalDTO.setTipusSucursal(sucursalDTO.tipusSucursal(sucursalDTO.getPaisSucursal()));
         }
+        return sucursalDTO;
+    }
+
+    //gettAll
+    public List<SucursalDTO> getAllSucursal(){
+        List<Sucursal> llistaSucursal = sucursalRepository.findAll();
+        List<SucursalDTO> llistaSucursalDTO = new ArrayList<SucursalDTO>();
+        for (Sucursal sucursal : llistaSucursal){
+            SucursalDTO sucursalDTO = new SucursalDTO();
+            sucursalDTO.setPk_SucursalID(sucursal.getPk_SucursalID());
+            sucursalDTO.setNomSucursal(sucursal.getNomSucursal());
+            sucursalDTO.setPaisSucursal(sucursalDTO.getPaisSucursal());
+            sucursalDTO.setTipusSucursal(sucursalDTO.tipusSucursal(sucursalDTO.getPaisSucursal()));
+            llistaSucursalDTO.add(sucursalDTO);
+        }
+        return llistaSucursalDTO;
 
     }
 
