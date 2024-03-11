@@ -3,25 +3,25 @@ package cat.itacademy.barcelonactiva.BiergeOscar.s05.t01.n01.model.domain;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "sucursal")
 public class Sucursal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "sucursalId")
     private int pk_SucursalID;
-    @Column(name = "Nom")
+    @Column(name = "Nom", nullable = false)
     private String nomSucursal;
-    @Column(name = "Pais")
+    @Column(name = "Pais", nullable = false)
     private String paisSucursal;
 
-    public int getPk_SucursalID() {
-        return pk_SucursalID;
-    }
-    public Sucursal() {
-
-    }
-
+    public Sucursal() {}
     public Sucursal(String nomSucursal, String paisSucursal) {
         this.nomSucursal = nomSucursal;
         this.paisSucursal = paisSucursal;
+    }
+
+    public int getPk_SucursalID() {
+        return pk_SucursalID;
     }
 
     public void setPk_SucursalID(int pk_SucursalID) {

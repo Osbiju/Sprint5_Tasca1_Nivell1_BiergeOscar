@@ -8,10 +8,6 @@ public class SucursalDTO {
     private String nomSucursal;
     private String paisSucursal;
     private String tipusSucursal;
-    private static final List<String> PAISOS_UE = Arrays.asList("alemania", "belgica", "croacia", "dinamarca",
-            "españa", "francia", "irlanda", "letonia", "luxemburgo", "paises bajos", "suecia", "bulgaria", "estonia",
-            "grecia", "malta", "polonia", "republica checha", "austria", "chipre", "eslovenia", "finlandia", "hunfria",
-            "italia", "lituania", "portugal", "rumania");
 
     public int getPk_SucursalID() {
         return pk_SucursalID;
@@ -45,7 +41,8 @@ public class SucursalDTO {
         this.tipusSucursal = tipusSucursal;
     }
 
-    public String tipusSucursal(String paisSucursal){
-        return (PAISOS_UE.contains(paisSucursal))?"UE" : "Fora UE";
-    }
+//    //metodo propio para saber tipo sucursal
+//    public String tipusSucursal(String paisSucursal){
+//        return (PAISOS_UE.contains(paisSucursal))?"UE" : "Fora UE";
+//    }
 }
