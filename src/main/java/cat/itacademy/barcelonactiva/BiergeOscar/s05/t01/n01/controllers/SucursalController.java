@@ -20,7 +20,7 @@ public class SucursalController {
     //para que te devuelva a la pagina de inicio
     @GetMapping
     public String homePage(){
-        return "redirect:/sucursal/getAll";
+        return "redirect:/show-sucursal/getAll";
     }
 
     //add
@@ -28,10 +28,10 @@ public class SucursalController {
     public String registroAddSucursal(Model modelo){
         Sucursal sucursal = new Sucursal();
         modelo.addAttribute("sucursal", sucursal);
-        return "Crear_sucursal";
+        return "add-sucursal";
     }
     @PostMapping("/add")
-    public String createSucursal(@ModelAttribute("Sucursal") Sucursal sucursal){
+    public String createSucursal(@ModelAttribute("sucursal") Sucursal sucursal){
         sucursalService.createSucursal(sucursal);
         return "redirect:/sucursal/getAll";
     }
