@@ -28,7 +28,7 @@ public class SucursalController {
     public String registroAddSucursal(Model modelo){
         Sucursal sucursal = new Sucursal();
         modelo.addAttribute("sucursal", sucursal);
-        return "add-sucursal";
+        return "crear_sucursal";
     }
     @PostMapping("/add")
     public String createSucursal(@ModelAttribute("sucursal") Sucursal sucursal){
