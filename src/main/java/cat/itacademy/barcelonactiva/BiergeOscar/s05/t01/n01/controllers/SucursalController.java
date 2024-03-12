@@ -20,7 +20,7 @@ public class SucursalController {
     //para que te devuelva a la pagina de inicio
     @GetMapping
     public String homePage(){
-        return "redirect:/show-sucursal/getAll";
+        return "redirect:/sucursal/getAll";
     }
 
     //add
@@ -38,7 +38,7 @@ public class SucursalController {
 
     //update
     @GetMapping("/update")
-    public  String registroUpdateSucursal(Integer id, Model modelo){
+    public  String registroUpdateSucursal(@RequestParam("id") Integer id, Model modelo){
         SucursalDTO sucursalDTO = sucursalService.getSucursalById(id);
         Sucursal sucursal = new Sucursal();
         sucursal.setPk_SucursalID(sucursalDTO.getPk_SucursalID());
@@ -64,7 +64,7 @@ public class SucursalController {
     @GetMapping("/delete/{id}")
     public String deleteSucursal(@PathVariable("id") int id){
         sucursalService.deleteSucursal(id);
-        return "sucursals";
+        return "redirect:/sucursal/getAll";
     }
 
     //getAll
