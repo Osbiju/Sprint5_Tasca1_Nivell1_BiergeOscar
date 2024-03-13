@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 //@Controller
 @Controller
@@ -70,11 +72,11 @@ public class SucursalController {
     //getAll
     @GetMapping("/getAll")
     public String getAllSucursals(Model modelo){
-        modelo.addAttribute("sucursals", sucursalService.getAllSucursal());
+        List<SucursalDTO> sucursales = sucursalService.getAllSucursal();
+        modelo.addAttribute("sucursals", sucursales);
         return "sucursals";
     }
 
 
     //TODO mirar como utilizar Model model:
-    //https://github.dev/rokysf/Tasca-S5.01/tree/main/S05T01N01MonsIglesiasJordi/src
 }

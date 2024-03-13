@@ -66,7 +66,7 @@ public class SucursalService implements ISucursalService{
         SucursalDTO sucursalDTO = new SucursalDTO();
         sucursalDTO.setPk_SucursalID(sucursal.getPk_SucursalID());
         sucursalDTO.setNomSucursal(sucursal.getNomSucursal());
-        sucursalDTO.setPaisSucursal(sucursalDTO.getPaisSucursal());
+        sucursalDTO.setPaisSucursal(sucursal.getPaisSucursal());
         sucursalDTO.setTipusSucursal(tipoSucursal(sucursal.getPaisSucursal()));
         return sucursalDTO;
     }
